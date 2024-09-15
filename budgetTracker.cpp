@@ -15,6 +15,8 @@
  *
  *
  */ 
+
+
 #include <iostream>
 #include <string>
 
@@ -31,37 +33,37 @@ void budgetTracker()
   std::string pause;           // <-
 
 
-  while (keepRunning == true)
+  while (keepRunning == true) // Beginning of loop. Breakable by internal if statement.
   {
-    std::cout << "Welcome to the college budget tracker!\n" << "Please enter your initial balance. (E.G. 837290927234328)\n";
+    std::cout << "Welcome to the college budget tracker!\n" << "Please enter your initial balance. (E.G. 837290927234328)\n$"; // Greeting message, balance request, and example (for preventing improper inputs)
     std::cin >> initialBalance;
   
     runningBalance = initialBalance;
 
-    std::cout << "Now, please enter your monthly rent cost\n";
+    std::cout << "Now, please enter your monthly rent cost\n$";
     std::cin >> rentBill;
   
     runningBalance -= rentBill;
 
-    std::cout << "Now enter your monthly insurance cost\n";
+    std::cout << "Now enter your monthly insurance cost\n$";
     std::cin >> insuranceBill;
 
-    runningBalance -= rentBill;
-
-    std::cout << "Enter your phone bill please\n";
+    runningBalance -= rentBill;                                                                                                // Lines 36 - 60 are the cycle of subtracting from the runningBalance
+                                                                                                                               // Also, the '$' sign after the endlines should prevent improper inputs.
+    std::cout << "Enter your phone bill please\n$";
     std::cin >> phoneBill;
 
     runningBalance -= phoneBill;
 
-    std::cout << "Enter your monthly grocery expenses please\n";
+    std::cout << "Enter your monthly grocery expenses please\n$";
     std::cin >> groceryExpenses;
     std::cout << "Calculating your budget after all monthly expenses...\n";
 
     runningBalance -= groceryExpenses;
 
-    std::cout << std::fixed << "Your spare change is... " << runningBalance << "\n Please enter [y] to do another budget, or [n] to exit the program.\n";
+    std::cout << std::fixed << "Your spare change is... $" << runningBalance << "\n Please enter [y] to do another budget, or [n] to exit the program.\n";
     std::cin >> pause;
-    if (pause == "n")
+    if (pause == "n") // Pragmatic operator. Allows for ONLY the character 'n' to close the program. 
     {
       keepRunning = false;
     }
@@ -72,7 +74,7 @@ void budgetTracker()
 
 
 
-int main()
+int main() // Main function. Every c++ program needs this
 {
-  budgetTracker();
+  budgetTracker(); // Calling the budgetTracker() function we made
 }
